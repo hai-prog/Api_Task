@@ -16,13 +16,17 @@ public class LoginTests {
     @BeforeClass
     public void setUp()
     {
+        // open the website
         driver = new SHAFT.GUI.WebDriver();
         driver.browser().navigateToURL("https://automationexercise.com/");
+
+        // create account
         api = new SHAFT.API(" https://automationexercise.com/api/");
+        registerPage = new RegisterPage(api);
+        registerPage.createAccount();
+
         loginPage = new LoginPage(driver);
         homePage =new HomePage(driver);
-        registerPage = new RegisterPage(api);
-        registerPage.createAccount("src/test/resources/testDataFiles/CreateAccountBody.json");
     }
 
     @Test

@@ -35,7 +35,7 @@ public class RegisterPage {
         this.api = api;
     }
 
-    public void createAccount(String jsonFilePath)
+    public void createAccount()
     {
         List<List<Object>> parameters = Arrays.asList(
                 Arrays.asList("name" , "Haidy"),
