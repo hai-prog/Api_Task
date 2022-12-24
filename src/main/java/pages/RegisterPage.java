@@ -2,6 +2,7 @@ package pages;
 
 import com.shaft.api.RestActions;
 import com.shaft.driver.SHAFT;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 
 import java.util.Arrays;
@@ -12,6 +13,16 @@ public class RegisterPage {
     SHAFT.API api ;
     private String email ;
     private String password ;
+
+    private String name ;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getEmail() {
         return email;
@@ -35,11 +46,13 @@ public class RegisterPage {
         this.api = api;
     }
 
+
+    @Step("create new account")
     public void createAccount()
     {
         List<List<Object>> parameters = Arrays.asList(
                 Arrays.asList("name" , "Haidy"),
-                Arrays.asList("email" , "hmm@gmail.com"),
+                Arrays.asList("email" , "ml@gmail.com"),
                 Arrays.asList("password" , "1233"),
                 Arrays.asList("title" , "Mrs"),
                 Arrays.asList("birth_date" , "16"),
@@ -62,7 +75,8 @@ public class RegisterPage {
                setContentType(ContentType.URLENC)
                .perform();
 
-      setEmail(parameters.get(1).toString());
-      setPassword(parameters.get(2).toString());
+      setName((parameters.get(0)).get(1).toString());
+      setEmail((parameters.get(1)).get(1).toString());
+      setPassword((parameters.get(2)).get(1).toString());
     }
 }

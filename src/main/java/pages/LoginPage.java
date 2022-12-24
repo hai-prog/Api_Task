@@ -1,6 +1,7 @@
 package pages;
 
 import com.shaft.driver.SHAFT;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class LoginPage {
@@ -21,6 +22,7 @@ public class LoginPage {
         this.driver = driver;
     }
 
+    @Step("user Login with credentials email: [{email}] and Password: [{password}]")
     public void login(String email , String password)
     {
       driver.element().type(emailAddressField,email).

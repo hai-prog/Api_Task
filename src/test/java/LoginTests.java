@@ -34,5 +34,6 @@ public class LoginTests {
     {
         homePage.clickOnSingUpAndLogin();
         loginPage.login(registerPage.getEmail(),registerPage.getPassword());
+        SHAFT.Validations.assertThat().object(homePage.getLoginASName()).isEqualTo(registerPage.getName()).perform();
     }
 }
